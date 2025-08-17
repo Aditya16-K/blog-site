@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: blog-site-backend
+    env: node
+    branch: main
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://aditya:aditya123@cluster0.gqddwor.mongodb.net
+      - key: ADMIN_EMAIL
+        value: admin@admin.com
+      - key: ADMIN_PASSWORD
+        value: admin123
+      - key: JWT_SECRET
+        value: secret@2025
+      - key: IMAGEKIT_PUBLIC_KEY
+        value: public_Nh5ztgSNvgXikyvmnQjxe0Fg0yo=
+      - key: IMAGEKIT_PRIVATE_KEY
+        value: private_VOXL0pKt/VZadRe6DU7UoPT2RVo=
+      - key: IMAGEKIT_URL_ENDPOINT
+        value: https://ik.imagekit.io/Aditya18
+      - key: GEMINI_API_KEY
+        value: AIzaSyAvk_UJV-CpE8g3LIW-JCeGQIQNKTW3GHc
