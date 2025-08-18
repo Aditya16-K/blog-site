@@ -122,24 +122,31 @@ export const AddBlog = () => {
           value={subTitle}
         />
 
-        <p className="mt-4"> Sub Description</p>
-        <div className="max-w-lg h-74 pb-16 pt-2 relative">
-          <div ref={editorRef}></div>
-          <button
-            disabled={
-              loading && (
-                <div className="absolute right-0 top-0 bottom-0  left-0 flex items-center justify-center bg-black/10 mt-2">
-                  <div className="w-8 h-8 rounded-full boarder-2 border-t-white animate-spin"></div>
-                </div>
-              )
-            }
-            type="button"
-            onClick={generateContent}
-            className="absolute bottom-1 right-2 ml-2 text-xs text-white bg-black/70 px-4 py-1.5 rounded hover:underline cursor-pointer"
-          >
-            Generate with AI
-          </button>
-        </div>
+<p className="mt-4">Sub Description</p>
+<div className="max-w-lg h-74 pb-16 pt-2 relative border border-gray-300 rounded">
+  <div ref={editorRef} className="h-full overflow-auto p-2"></div>
+
+  {/* Loading overlay */}
+  {loading && (
+    <div className="absolute inset-0 flex items-center justify-center bg-black/20 z-10 rounded">
+      <div className="w-10 h-10 border-4 border-t-white border-gray-300 rounded-full animate-spin"></div>
+    </div>
+  )}
+</div>
+
+{/* Button below editor, right-aligned */}
+<div className="flex justify-end mt-2 max-w-lg">
+  <button
+    type="button"
+    onClick={generateContent}
+    disabled={loading}
+    className="text-xs text-white bg-black/70 px-3 py-1.5 rounded hover:bg-black/80 transition"
+  >
+    {loading ? "Generating..." : "Generate with AI"}
+  </button>
+</div>
+
+
 
         <p className="mt-4">Blog Category</p>
         <select
